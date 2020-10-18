@@ -10,8 +10,6 @@ const {
   PG_PORT,
 } = process.env;
 
-console.log(DATABASE_URL);
-
 const poolConfig =
   NODE_ENV === 'development'
     ? {
