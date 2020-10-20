@@ -32,7 +32,7 @@ pollsRouter.patch('/:id', async (req, res) => {
   const pollID = Number(req.params.id);
   const result =
     optionID === null
-      ? await insertPollOption(pollID, optionName)
+      ? await insertPollOption(pollID, optionName, votes)
       : await updatePollOption(optionID, votes);
   res.json(result);
 });

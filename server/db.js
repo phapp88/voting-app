@@ -11,7 +11,7 @@ const {
 } = process.env;
 
 const poolConfig =
-  NODE_ENV === 'development'
+  NODE_ENV === 'dev'
     ? {
         user: PG_USERNAME,
         host: PG_HOST,
@@ -110,18 +110,18 @@ const insertPoll = async (userID, title, options) => {
   return newPoll;
 };
 
-const insertPollOption = async (pollID, optionName) => {
+const insertPollOption = async (pollID, optionName, votes = 0) => {
   const query = {
     text:
-      'INSERT INTO poll_options (poll_id, option_name) VALUES ($1, $2) RETURNING id',
-    values: [pollID, optionName],
+      'INSERT INTO poll_options (poll_id, option_name, votes) VALUES ($1, $2, $3) RETURNING id',
+    values: [pollID, optionName, votes],
   };
 
   const { rows } = await pool.query(query);
 
   return {
     pollID,
-    option: { id: rows[0].id, name: optionName, votes: 1 },
+    option: { id: rows[0].id, name: optionName, votes },
   };
 };
 
