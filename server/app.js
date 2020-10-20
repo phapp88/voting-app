@@ -14,7 +14,7 @@ const { NODE_ENV, SESSION_SECRET } = process.env;
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
