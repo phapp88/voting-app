@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon server",
+    "start:local": "cross-env NODE_ENV=production node server",
     "start": "NODE_ENV=production node server",
     "build": "cd client && npm install && npm run build"
   },
@@ -13,6 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "eslint": "^7.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.4.0",
     "nodemon": "^2.0.5"
   },
   "dependencies": {

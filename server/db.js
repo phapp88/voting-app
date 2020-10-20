@@ -70,7 +70,7 @@ const getPolls = async () => {
         options: [option],
       });
     } else {
-      polls[pollsIndex].options.push(option);
+      polls[Number(pollsIndex)].options.push(option);
     }
   });
 
