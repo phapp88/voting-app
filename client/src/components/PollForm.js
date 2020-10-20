@@ -33,6 +33,7 @@ const PollForm = ({ poll, updatePoll }) => {
 
   const handleOtherFieldChange = (event) => {
     setOtherOption(event.target.value);
+    setChoice('other');
   };
 
   const handleRadioChange = (event) => {
