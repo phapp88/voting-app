@@ -10,11 +10,15 @@ import LoginDialog from './LoginDialog';
 import NewPollDialog from './NewPollDialog';
 import SignUpDialog from './SignupDialog';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: theme.palette.primary.dark,
+    color: 'white',
+  },
   flex: {
     flex: 1,
   },
-});
+}));
 
 const NavBar = ({ addPoll, showPollsList, setUserID, userID, visiblePoll }) => {
   const classes = useStyles();
@@ -29,7 +33,7 @@ const NavBar = ({ addPoll, showPollsList, setUserID, userID, visiblePoll }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.appBar} position="static">
       <Toolbar>
         {visiblePoll === null ? (
           <Typography className={classes.flex} variant="h6">
